@@ -194,20 +194,6 @@ body {
     border-radius: 4px;
 }
 
-/* Coming Soon Box */
-.coming-soon-box {
-    text-align: center;
-    padding: 120px 20px;
-}
-
-.coming-soon {
-    font-size: 3.5rem;
-    font-weight: 900;
-    color: #a1a1aa;
-    letter-spacing: 6px;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-}
-
 /* Footer & Yayımcı-Telif Alanı */
 footer {
     background-color: #03050a;
@@ -245,14 +231,9 @@ footer {
 /* Animasyonlar */
 .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
 .animate-slide-up { animation: slideUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
-.animate-pulse { animation: pulse 2s infinite ease-in-out; }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.6; color: #a1a1aa; }
-    50% { transform: scale(1.05); opacity: 1; color: #d4af37; text-shadow: 0 0 25px rgba(212, 175, 55, 0.6); }
-}
 
 @media (max-width: 600px) {
     .header-top { flex-direction: column; align-items: center; }
