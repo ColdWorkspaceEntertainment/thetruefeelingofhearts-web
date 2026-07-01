@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The True Feeling Of Hearts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Üst Başlık ve Dil Seçimi Alanı -->
+    <header class="main-header animate-fade-in">
+        <div class="header-top">
+            <div class="production-credit">
+                <img src="https://imgur.com/HBWlU3m.png" alt="Cold Works Logo" class="prod-logo">
+                <span id="txt-powered">Powered By Cold Works Production</span>
+            </div>
+            
+            <!-- Özel Dil Seçim Butonu ve Paneli -->
+            <div class="language-selector">
+                <button class="lang-trigger-btn" onclick="toggleLangMenu()">
+                    🌐 <span id="current-lang-label">Language / Dil</span>
+                </button>
+                <div id="lang-dropdown" class="lang-dropdown-menu">
+                    <button onclick="selectLanguage('en')">English (Original)</button>
+                    <button onclick="selectLanguage('tr')">Türkçe (Çeviri)</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="manga-branding">
+            <img src="https://i.imgur.com/W2A80Zp.png" alt="Manga Logo" class="manga-logo">
+        </div>
+    </header>
+
+    <!-- Navigasyon / Bölüm Seçimi -->
+    <nav class="chapter-nav animate-fade-in">
+        <button id="btn-ch1" class="nav-btn active" onclick="changeChapter(1)">Chapter 1</button>
+        <button id="btn-ch2" class="nav-btn" onclick="changeChapter(2)">Chapter 2</button>
+    </nav>
+
+    <!-- Ana Manga İçerik Alanı -->
+    <main class="manga-container animate-slide-up">
+        
+        <!-- Bölüm 1 -->
+        <article id="chapter-1" class="chapter-content active-content">
+            <h1 id="ch1-title" class="chapter-title">The Chapter 1: Welcome to Home, Luna.</h1>
+            <div id="ch1-text-container" class="chapter-text">
+                <!-- İçerik JavaScript tarafından dinamik olarak dil seçimine göre doldurulacak -->
+            </div>
+        </article>
+
+        <!-- Bölüm 2 -->
+        <article id="chapter-2" class="chapter-content coming-soon-box">
+            <h2 id="ch2-title">Chapter 2</h2>
+            <p id="txt-coming-soon" class="coming-soon animate-pulse">COMING SOON</p>
+        </article>
+
+    </main>
+
+    <!-- Footer ve Telif Hakları -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">Story, Characters & Creative Rights &copy; <b>Infixy398</b>. All Rights Reserved.</p>
+            <p class="publisher"><span id="txt-published-by">Published & Distributed by</span> <b>Cold Works Production</b></p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
