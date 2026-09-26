@@ -34,40 +34,116 @@
         </div>
     </header>
 
-    <!-- Navigasyon / Bölüm Seçimi -->
-    <nav class="chapter-nav animate-fade-in">
-        <button id="btn-ch1" class="nav-btn active" onclick="changeChapter(1)">Chapter 1</button>
-        <button id="btn-ch2" class="nav-btn" onclick="changeChapter(2)">Chapter 2</button>
+    <!-- Ana Bölüm Seçimi (Welcome / Story / About / Fun Fact) -->
+    <nav class="section-nav animate-fade-in">
+        <button id="btn-welcome" class="section-btn active" onclick="changeSection('welcome')">Welcome</button>
+        <button id="btn-story" class="section-btn" onclick="changeSection('story')">Story</button>
+        <button id="btn-about" class="section-btn" onclick="changeSection('about')">About</button>
+        <button id="btn-funfact" class="section-btn" onclick="changeSection('funfact')">Fun Fact</button>
     </nav>
 
-    <!-- Ana Manga İçerik Alanı -->
-    <main class="manga-container animate-slide-up">
-        
-        <!-- Bölüm 1 -->
-        <article id="chapter-1" class="chapter-content active-content">
-            <h1 id="ch1-title" class="chapter-title">The Chapter 1: Welcome to Home, Luna.</h1>
-            <div id="ch1-text-container" class="chapter-text">
-                <!-- İçerik JavaScript tarafından doldurulacak -->
-            </div>
-        </article>
+    <!-- ===== WELCOME BÖLÜMÜ ===== -->
+    <section id="section-welcome" class="page-section visible">
+        <div class="manga-container welcome-box">
+            <img src="https://imgur.com/8zg43Rg.png" alt="The True Feeling Of Hearts" class="welcome-logo">
+            <h2 id="txt-welcome-title" class="welcome-title">Welcome!</h2>
+            <p id="txt-welcome-text" class="welcome-text">
+                Welcome to <b>The True Feeling Of Hearts</b>. Grab a seat, get comfortable
+                and step into the story. You can read the chapters, meet the characters
+                and discover a few fun facts along the way.
+            </p>
+            <button id="txt-start-reading" class="start-btn" onclick="changeSection('story')">Start Reading</button>
+        </div>
+    </section>
 
-        <!-- Bölüm 2 -->
-        <article id="chapter-2" class="chapter-content">
-            <h1 id="ch2-title" class="chapter-title">The Chapter 2: Blue and Red</h1>
-            <div id="ch2-text-container" class="chapter-text">
-                <!-- İçerik JavaScript tarafından doldurulacak -->
-            </div>
-        </article>
+    <!-- ===== STORY BÖLÜMÜ ===== -->
+    <div id="section-story" class="page-section">
 
-    </main>
+        <!-- Navigasyon / Chapter Seçimi -->
+        <nav class="chapter-nav">
+            <button id="btn-ch1" class="nav-btn active" onclick="changeChapter(1)">Chapter 1</button>
+            <button id="btn-ch2" class="nav-btn" onclick="changeChapter(2)">Chapter 2</button>
+        </nav>
+
+        <!-- Ana Manga İçerik Alanı -->
+        <main class="manga-container animate-slide-up">
+            
+            <!-- Bölüm 1 -->
+            <article id="chapter-1" class="chapter-content active-content">
+                <h1 id="ch1-title" class="chapter-title">The Chapter 1: Welcome to Home, Luna.</h1>
+                <div id="ch1-text-container" class="chapter-text">
+                    <!-- İçerik JavaScript tarafından doldurulacak -->
+                </div>
+            </article>
+
+            <!-- Bölüm 2 -->
+            <article id="chapter-2" class="chapter-content">
+                <h1 id="ch2-title" class="chapter-title">The Chapter 2: Blue and Red</h1>
+                <div id="ch2-text-container" class="chapter-text">
+                    <!-- İçerik JavaScript tarafından doldurulacak -->
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <!-- ===== ABOUT BÖLÜMÜ ===== -->
+    <section id="section-about" class="page-section">
+        <div class="manga-container">
+            <h2 id="txt-about-characters" class="section-title">About the Characters</h2>
+
+            <div class="character-card">
+                <h3 class="character-name">Riley Ivy Eclipse</h3>
+                <ul class="character-info">
+                    <li><span>Real Name</span> Riley Ivy Eclipse</li>
+                    <li><span>Age</span> 18</li>
+                    <li><span>Pronouns</span> She/They</li>
+                    <li><span>Origin</span> America &amp; South Africa</li>
+                    <li><span>Height</span> 1.70</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FUN FACT BÖLÜMÜ ===== -->
+    <section id="section-funfact" class="page-section">
+        <div class="manga-container">
+            <h2 id="txt-fun-fact" class="section-title">Fun Fact</h2>
+            <div class="fun-fact-box">
+                <p>Coming soon...</p>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer ve Telif Hakları -->
     <footer>
         <div class="footer-content">
-            <p class="copyright">Story, Characters & Creative Rights &copy; <b>Infixy398</b>. All Rights Reserved.</p>
-            <p class="publisher"><span id="txt-published-by">Published & Distributed by</span> <b>Cold Works Production</b></p>
+            <p class="copyright">Story, Characters &amp; Creative Rights &copy; <b>Infixy398</b>. All Rights Reserved.</p>
+            <p class="publisher"><span id="txt-published-by">Published &amp; Distributed by</span> <b>Cold Works Production</b></p>
         </div>
     </footer>
+
+    <!-- Bölüm Değiştirme (Welcome / Story / About / Fun Fact) -->
+    <script>
+        function changeSection(name) {
+            // Tüm bölümleri gizle
+            document.querySelectorAll('.page-section').forEach(function (section) {
+                section.classList.remove('visible');
+            });
+
+            // Seçilen bölümü göster
+            document.getElementById('section-' + name).classList.add('visible');
+
+            // Düğmelerin aktif durumunu güncelle
+            document.querySelectorAll('.section-btn').forEach(function (btn) {
+                btn.classList.remove('active');
+            });
+            document.getElementById('btn-' + name).classList.add('active');
+
+            // Sayfanın başına kaydır
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
     
     <script src="script.js"></script>
 </body>
